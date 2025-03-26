@@ -15,5 +15,4 @@
         memory: 2048  # Recommended
         cores: 2      # Recommended
         disk: 20      # Disk size in GB
-        storage: "local-lvm"  # Storage pool
         state: present
