@@ -1,10 +1,19 @@
-
-- name: Create new container with minimal options
-  community.general.proxmox:
-    vmid: 100
-    node: proxmox03
-    api_user: root@pam
-    api_password: yhp82bws
-    api_host: node1
-    password: yhp82bws
-    hostname: TEST
+---
+- name: Create a Proxmox LXC Container
+  hosts: localhost  # Runs on the control node, using the Proxmox API
+  become: no  # No sudo needed for API calls
+  tasks:
+    - name: Create new container with minimal options
+      community.general.proxmox:
+        vmid: 800
+        node: proxmox03
+        api_user: root@pam
+        api_password: yhp82bws
+        api_host: proxmox03
+        password: yhp82bws
+        hostname: TEST
+        memory: 2048  # Recommended
+        cores: 2      # Recommended
+        disk: 20      # Disk size in GB
+        storage: "local-lvm"  # Storage pool
+        state: present
