@@ -4,16 +4,16 @@
   become: no  # No sudo needed for API calls
   tasks:
     - name: Create VM with 1 10GB SATA disk and an EFI disk, with Secure Boot disabled by default
-  community.general.proxmox_kvm:
-    api_user: root@pam
-    api_password: secret
-    api_host: helldorado
-    name: spynal
-    node: sabrewulf
-    sata:
-      sata0: 'VMs_LVM:10,format=raw'
-    bios: ovmf
-    efidisk0:
+    community.general.proxmox_kvm:
+      api_user: root@pam
+      api_password: secret
+      api_host: helldorado
+      name: spynal
+      node: sabrewulf
+      sata:
+        sata0: 'VMs_LVM:10,format=raw'
+      bios: Seabios
+      efidisk0:
       storage: VMs_LVM_thin
       format: raw
       efitype: 4m
