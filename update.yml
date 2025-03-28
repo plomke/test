@@ -1,7 +1,7 @@
 ---
 - name: Proxmox host
-  hosts: proxmox03  # Runs on the control node, using the Proxmox API
-  become: no  # No sudo needed for API calls
+  hosts: proxmox03  
+  become: no  
   tasks:
     - name: Create VM 
       community.general.proxmox_kvm:
