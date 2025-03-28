@@ -40,6 +40,6 @@
         - DHCP
         - FILE
         - AD2
-  - name: Wait for Windows installation to complete
+    - name: Wait for Windows installation to complete
       ansible.builtin.pause:
         minutes: 5
