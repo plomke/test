@@ -11,9 +11,6 @@
         name: batman
         node: proxmox03
         sata:
-          sata0: 'VMs_LVM:10,format=raw'
+          sata0: 'local-lvm:10,format=raw'
         bios: seabios
-        efidisk0:
-        storage: 'local-lvm'
-        format: raw
-        efitype: 4m
+        
