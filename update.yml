@@ -17,4 +17,3 @@
         storage: 'local-lvm'
         format: raw
         efitype: 4m
-        pre_enrolled_keys: false
