@@ -15,7 +15,7 @@
         bios: seabios
         ide:
           ide0: "local:iso/Win2022DatacenterDesktopExperienceAuto.iso,media=cdrom"
-          ide2: "local:iso/virtio-win-0.1.266.iso,media=cdrom"
+          ide1: "local:iso/virtio-win-0.1.266.iso,media=cdrom"
         cores: 2
         memory: 4096
         net:
@@ -40,3 +40,6 @@
         - DHCP
         - FILE
         - AD2
+  - name: Wait for Windows installation to complete
+      ansible.builtin.pause:
+        minutes: 5
