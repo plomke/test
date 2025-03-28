@@ -11,7 +11,7 @@
         name: batman
         node: proxmox03
         sata:
-          sata0: 'local-lvm:50,format=raw'
+          sata0: 'local-lvm:70,format=raw'
         bios: seabios
         ide:
           ide0: "local:iso/Win2022DatacenterDesktopExperienceAuto.iso,media=cdrom"
