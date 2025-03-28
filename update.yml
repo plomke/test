@@ -12,7 +12,7 @@
         node: proxmox03
         sata:
           sata0: 'VMs_LVM:10,format=raw'
-        bios: Seabios
+        bios: seabios
         efidisk0:
         storage: 'local-lvm'
         format: raw
