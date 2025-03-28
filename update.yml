@@ -5,7 +5,7 @@
   tasks:
     - name: Create new container with minimal options
       community.general.proxmox:
-        vmid: 800
+        vmid: 110
         node: proxmox03
         api_user: root@pam
         api_password: yhp82bws
