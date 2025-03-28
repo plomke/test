@@ -1,9 +1,9 @@
 ---
-- name: Create a Proxmox LXC Container
+- name: Proxmox host
   hosts: proxmox03  # Runs on the control node, using the Proxmox API
   become: no  # No sudo needed for API calls
   tasks:
-    - name: Create new container with minimal options
+    - name: Create VM
       community.general.proxmox:
         vmid: 110
         node: proxmox03
