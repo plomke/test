@@ -19,5 +19,5 @@
         cores: 2
         memory: 4096
         net:
-          net0: 'virtio,bridge=vmbr1,rate=200'
+          net0: 'virtio,bridge=vmbr0,rate=200'
         ostype: win11
