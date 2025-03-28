@@ -40,12 +40,6 @@
         - DHCP
         - FILE
         - AD2
-    - name: Query Proxmox for VM details
-      community.general.proxmox:
-        api_user: root@pam
-        api_password: yhp82bws
-        api_host: 10.0.0.13
-        hostname: proxmox03
-        vmname: AD
-        node: proxmox03
-      register: vm_info
+    - name: Wait for Windows installation to complete
+      ansible.builtin.pause:
+        minutes: 15
