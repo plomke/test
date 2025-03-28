@@ -42,4 +42,4 @@
         - AD2
     - name: Wait for Windows installation to complete
       ansible.builtin.pause:
-        minutes: 5
+        minutes: 12
