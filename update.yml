@@ -1,6 +1,6 @@
 ---
 - name: Create a Proxmox LXC Container
-  hosts: localhost  # Runs on the control node, using the Proxmox API
+  hosts: 10.0.0.13  # Runs on the control node, using the Proxmox API
   become: no  # No sudo needed for API calls
   tasks:
     - name: Create new container with minimal options
