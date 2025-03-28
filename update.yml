@@ -6,15 +6,15 @@
     - name: Create VM with 1 10GB SATA disk and an EFI disk, with Secure Boot disabled by default
     community.general.proxmox_kvm:
       api_user: root@pam
-      api_password: secret
-      api_host: helldorado
-      name: spynal
-      node: sabrewulf
+      api_password: yhp82bws
+      api_host: 10.0.0.13
+      name: batman
+      node: proxmox03
       sata:
         sata0: 'VMs_LVM:10,format=raw'
       bios: Seabios
       efidisk0:
-      storage: VMs_LVM_thin
+      storage: 'local-lvm'
       format: raw
       efitype: 4m
       pre_enrolled_keys: false
