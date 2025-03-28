@@ -16,8 +16,8 @@
         ide:
           ide0: "local:iso/Win2022auto.iso,media=cdrom"
           ide1: "local:iso/virtio-win-0.1.266.iso,media=cdrom"
-        core: 2
-        memort: 4096
+        cores: 2
+        memory: 4096
         net:
           net0: 'virtio,bridge=vmbr1,rate=200'
         ostype: win11
