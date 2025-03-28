@@ -45,6 +45,7 @@
         api_user: root@pam
         api_password: yhp82bws
         api_host: 10.0.0.13
+        hostname: proxmox03
         vmname: AD
         node: proxmox03
       register: vm_info
