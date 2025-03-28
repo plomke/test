@@ -8,7 +8,7 @@
         api_user: root@pam
         api_password: yhp82bws
         api_host: 10.0.0.13
-        name: batman
+        name: test27
         node: proxmox03
         sata:
           sata0: 'local-lvm:10,format=raw'
