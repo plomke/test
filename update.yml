@@ -10,7 +10,8 @@
         api_password: yhp82bws
         api_host: proxmox03
         password: yhp82bws
-        hostname: TEST
+        hostname: AD
+        disk: 'local-lvm:20'
         memory: 2048  # Recommended
         cores: 2      # Recommended
         state: present
