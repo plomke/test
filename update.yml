@@ -8,7 +8,7 @@
         api_user: root@pam
         api_password: yhp82bws
         api_host: 10.0.0.13
-        name: test27
+        name: batman
         node: proxmox03
         sata:
           sata0: 'local-lvm:10,format=raw'
@@ -21,4 +21,4 @@
         net:
           net0: 'virtio,bridge=vmbr0,rate=200'
         ostype: win11
-        state: started
+        state: present
