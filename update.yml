@@ -8,7 +8,7 @@
         api_user: root@pam
         api_password: yhp82bws
         api_host: 10.0.0.13
-        name: batman
+        name: "{{ item }}"
         node: proxmox03
         sata:
           sata0: 'local-lvm:70,format=raw'
@@ -22,3 +22,21 @@
           net0: 'virtio,bridge=vmbr0,rate=200'
         ostype: win11
         state: present
+      loop:
+        - AD
+        - DHCP
+        - FILE
+        - AD2
+    - name: Start VM
+      community.general.proxmox_kvm:
+        api_user: root@pam
+        api_password: yhp82bws
+        api_host: 10.0.0.13
+        name: "{{ item }}"
+        node: proxmox03
+        state: started
+      loop:
+        - AD
+        - DHCP
+        - FILE
+        - AD2
