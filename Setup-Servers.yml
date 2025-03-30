@@ -1,6 +1,6 @@
 ---
-- name: Proxmox host
-  hosts: proxmox03  
+- name: AD SERVER
+  hosts: 10.0.0.194
   become: no  
   tasks:
     - name: Create new Windows domain in a new forest with specific parameters and reboot in post task
