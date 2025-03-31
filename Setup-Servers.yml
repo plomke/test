@@ -1,6 +1,6 @@
 ---
 - name: AD SERVER
-  hosts: 10.0.0.187
+  hosts: 10.0.0.188
   become: no  
   tasks:
     - name: Create new Windows domain in a new forest with specific parameters and reboot in post task
