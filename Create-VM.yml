@@ -23,10 +23,7 @@
         ostype: win11
         state: present
       loop:
-        - AD
-        - DHCP
-        - FILE
-        - AD2
+        - TEST4
     - name: Start VM
       community.general.proxmox_kvm:
         api_user: root@pam
@@ -36,10 +33,5 @@
         node: proxmox03
         state: started
       loop:
-        - AD
-        - DHCP
-        - FILE
-        - AD2
-    - name: Wait for Windows installation to complete
-      ansible.builtin.pause:
-        minutes: 15
+        - TEST4
+  
