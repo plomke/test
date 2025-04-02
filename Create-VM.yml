@@ -23,7 +23,10 @@
         ostype: win11
         state: present
       loop:
-        - TEST4
+        - AD01
+        - AD02
+        - CA
+        - File01
     - name: Start VM
       community.general.proxmox_kvm:
         api_user: root@pam
@@ -33,5 +36,8 @@
         node: proxmox03
         state: started
       loop:
-        - TEST4
+        - AD01
+        - AD02
+        - CA
+        - File01
   
