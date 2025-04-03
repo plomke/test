@@ -26,7 +26,7 @@
         - CA01
         - FILE01
         - DHCP01
-- name: Create VM with 4 disks
+- name: Create VM with 4 disks for Active Directory
       community.general.proxmox_kvm:
         api_user: root@pam
         api_password: yhp82bws
