@@ -3,7 +3,7 @@
   hosts: proxmox03  
   become: no  
   tasks:
-    - name: Create VM 
+    - name: Create VM with 1 disk
       community.general.proxmox_kvm:
         api_user: root@pam
         api_password: yhp82bws
@@ -23,10 +23,34 @@
         ostype: win11
         state: present
       loop:
+        - CA01
+        - FILE01
+        - DHCP01
+- name: Create VM with 4 disks
+      community.general.proxmox_kvm:
+        api_user: root@pam
+        api_password: yhp82bws
+        api_host: 10.0.0.13
+        name: "{{ item }}"
+        node: proxmox03
+        sata:
+          sata0: 'local-lvm:70,format=raw'
+          sata1: 'local-lvm:70,format=raw'
+          sata2: 'local-lvm:70,format=raw'
+          sata3: 'local-lvm:70,format=raw'
+        bios: seabios
+        ide:
+          ide0: "local:iso/Win2022DatacenterDesktopExperienceAuto.iso,media=cdrom"
+          ide1: "local:iso/virtio-win-0.1.266.iso,media=cdrom"
+        cores: 2
+        memory: 4096
+        net:
+          net0: 'virtio,bridge=vmbr0,rate=200'
+        ostype: win11
+        state: present
+      loop:
         - AD01
         - AD02
-        - CA
-        - File01
     - name: Start VM
       community.general.proxmox_kvm:
         api_user: root@pam
@@ -36,8 +60,8 @@
         node: proxmox03
         state: started
       loop:
-        - AD01
-        - AD02
         - CA
         - File01
+        - AD01
+        - AD02
   
