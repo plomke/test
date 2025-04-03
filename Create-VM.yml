@@ -62,6 +62,7 @@
       loop:
         - CA
         - File01
+        - DHCP01
         - AD01
         - AD02
   
