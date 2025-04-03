@@ -26,7 +26,11 @@
         - CA01
         - FILE01
         - DHCP01
-    - name: Create VM with 4 disks for Active Directory
+- name: Proxmox host
+  hosts: proxmox03  
+  become: no  
+  tasks:
+    - name: Create VM with 4 disks
       community.general.proxmox_kvm:
         api_user: root@pam
         api_password: yhp82bws
