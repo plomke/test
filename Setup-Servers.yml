@@ -1,7 +1,6 @@
 ---      
 - name: AD01 SERVER
-  hosts: 10.0.0.111
-  become: no  
+  hosts: 10.0.0.111 
   tasks:
     - name: Create new Windows domain in a new forest with specific parameters and reboot in post task
       microsoft.ad.domain:
@@ -15,7 +14,13 @@
         sysvol_path:  G:\Sysvol
         reboot: true
       register: domain_install
-    
-    - name: Reboot host if install requires it
-      ansible.windows.win_reboot:
-      when: domain_install.reboot_required
+ - name: ADD DNS forwarder
+  hosts: 10.0.0.111
+  tasks:   
+    - name: Ensure forwarder has specific DNS servers
+  community.windows.win_dns_zone:
+    name: KMC.local
+    type: forwarder
+    dns_servers:
+      - 1.1.1.1
+      - 8.8.8.8
