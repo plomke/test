@@ -10,7 +10,7 @@
       async: 60
       poll: 0
 - name: Proxmox host
-  hosts: 10.0.0.13   
+  hosts: proxmox03   
   tasks:
     - name: Reboot VM
       community.general.proxmox_kvm:
