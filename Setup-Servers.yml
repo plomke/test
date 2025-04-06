@@ -22,6 +22,6 @@
       community.windows.win_dns_zone:
         name: kmc.local
         type: forwarder
-        forwarders:
+        dns_servers:
           - 1.1.1.1
           - 8.8.8.8
