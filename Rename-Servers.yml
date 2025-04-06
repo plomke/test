@@ -18,7 +18,7 @@
       register: rename_result
       async: 60
       poll: 0
-    - name: Start VM
+    - name: reboot vm
       community.general.proxmox_kvm:
         api_user: root@pam
         api_password: yhp82bws
