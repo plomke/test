@@ -32,6 +32,9 @@
         - DHCP01
         - AD01
         - AD02
+    - name: Wait 20 seconds after reboot
+      ansible.builtin.pause:
+        seconds: 20
       
 - name: AD SERVER
   hosts: 10.0.0.111
