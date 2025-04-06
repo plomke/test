@@ -1,3 +1,4 @@
+---
 - name: rename servers
   hosts: windows
   serial: 1
