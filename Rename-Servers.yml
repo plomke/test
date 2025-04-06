@@ -9,18 +9,7 @@
       register: rename_result
       async: 60
       poll: 0
-    - name: reboot vm
-      community.general.proxmox_kvm:
-        api_user: root@pam
-        api_password: yhp82bws
-        api_host: 10.0.0.13
-        name: "AD01"
-        node: proxmox03
-        state: rebooted
-
-
-
-- name: Reboot vm
+    - name: Reboot vm
       community.general.proxmox_kvm:
         api_user: root@pam
         api_password: yhp82bws
@@ -34,3 +23,7 @@
         - DHCP01
         - AD01
         - AD02
+
+
+
+
