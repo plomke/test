@@ -74,6 +74,29 @@
         include_management_tools: yes
         include_sub_features: yes
       register: dhcp_install
+- name: Join domain dhcp server
+  hosts: 10.0.0.113
+  tasks:
+    - name: Join DHCP server to KMC.local domain
+      microsoft.ad.membership:
+        dns_domain_name: KMC.local
+        hostname: CA01
+        domain_admin_user: administrator@KMC.local
+        domain_admin_password: P@ssw0rd!
+        state: domain
+        reboot: true
+
+- name: Domain join CA01 server
+  hosts: 10.0.0.115
+  tasks:
+    - name: Join CA server to KMC.local domain
+      microsoft.ad.membership:
+        dns_domain_name: KMC.local
+        hostname: CA01
+        domain_admin_user: administrator@KMC.local
+        domain_admin_password: P@ssw0rd!
+        state: domain
+        reboot: true
       
 - name: Install Certificate authority
   hosts: 10.0.0.115
@@ -82,3 +105,12 @@
       ansible.windows.win_feature:
         name: ADCS-Cert-Authority
         state: present
+
+- name: Setup root CA
+  hosts: 10.0.0.115
+  tasks:
+    - name: Configure the Certificate Authority as an Enterprise Root CA
+      ansible.windows.win_powershell:
+        script: |
+          Install-AdcsCertificationAuthority -CAType EnterpriseRootCA -CACommonName "KMC-Root-CA" -KeyLength 2048 -HashAlgorithm SHA256 -ValidityPeriod Years -ValidityPeriodUnits 5 -Force
+  
