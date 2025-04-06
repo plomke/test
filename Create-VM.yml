@@ -63,8 +63,8 @@
         node: proxmox03
         state: started
       loop:
-        - CA
-        - File01
+        - CA01
+        - FILE01
         - DHCP01
         - AD01
         - AD02
