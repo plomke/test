@@ -14,7 +14,7 @@
     - name: Rename vms
       ansible.windows.win_powershell:
         script: |
-          Rename-Computer -NewName "{{ host_to_name[ansible_host] }}" -Force
+          Rename-Computer -NewName "{{ host_to_name[windows] }}" -Force
       vars:
         host_to_name:
         "10.0.0.111": "AD01"
