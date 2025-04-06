@@ -1,6 +1,8 @@
 ---
 - name: rename servers
-  hosts: 10.0.0.111,10.0.0.112,10.0.0.113,10.0.0.114,10.0.0.115
+  hosts: [windows]
+  serial: 1
+  order: inventory
   vars:
       host_to_name:
       "10.0.0.111": "AD01"
@@ -12,7 +14,7 @@
     - name: Rename vms
       ansible.windows.win_powershell:
         script: |
-          Rename-Computer -NewName "{{ new_server_name }}" -Force
+          Rename-Computer -NewName "{{ host_to_name[ansible_host] }}" -Force
       vars:
         host_to_name:
         "10.0.0.111": "AD01"
