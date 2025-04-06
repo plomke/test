@@ -20,7 +20,7 @@
   tasks:
     - name: ADD DNS FORWARDERS
       community.windows.win_dns_server:
-        name: wpinner.euc.vmware.com
+        name: kmc.local
         forwarders:
           - 1.1.1.1
           - 8.8.8.8
