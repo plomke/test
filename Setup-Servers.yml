@@ -36,8 +36,7 @@
         state: present
         include_management_tools: yes
         include_sub_features: yes
-      register: feature_install
-
+   
 - name: AD02 SERVER
   hosts: 10.0.0.112 
   tasks:
