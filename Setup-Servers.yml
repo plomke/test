@@ -1,5 +1,5 @@
 ---      
-- name: AD SERVER
+- name: AD01 SERVER
   hosts: 10.0.0.111
   become: no  
   tasks:
