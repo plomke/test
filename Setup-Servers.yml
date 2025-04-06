@@ -105,12 +105,3 @@
       ansible.windows.win_feature:
         name: ADCS-Cert-Authority
         state: present
-
-- name: Setup root CA
-  hosts: 10.0.0.115
-  tasks:
-    - name: Configure the Certificate Authority as an Enterprise Root CA
-      ansible.windows.win_powershell:
-        script: |
-          Install-AdcsCertificationAuthority -CAType EnterpriseRootCA -CACommonName "KMC-Root-CA" -KeyLength 2048 -HashAlgorithm SHA256 -ValidityPeriod Years -ValidityPeriodUnits 5 -Force
-  
