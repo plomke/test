@@ -1,18 +1,18 @@
 ---
 - name: AD SERVER
-  hosts: 10.0.0.188
+  hosts: 10.0.0.111
   become: no  
   tasks:
     - name: Create new Windows domain in a new forest with specific parameters and reboot in post task
       microsoft.ad.domain:
         create_dns_delegation: false
-        database_path: C:\Windows\NTDS
-        dns_domain_name: ansible.vagrant
+        database_path:  F:\Database
+        dns_domain_name: KMC.local
         domain_mode: Win2012R2
-        domain_netbios_name: ANSIBLE
+        domain_netbios_name: KMC
         forest_mode: Win2012R2
-        safe_mode_password: password123!
-        sysvol_path: C:\Windows\SYSVOL
+        safe_mode_password: P@ssw0rd!
+        sysvol_path:  G:\Sysvol
       register: domain_install
     
     - name: Reboot host if install requires it
