@@ -59,4 +59,7 @@
         domain_admin_password: P@ssw0rd!
         safe_mode_password: P@ssw0rd!
         state: domain_controller
+        sysvol_path:  G:\Sysvol
+        log_path: H:\Logs
+        database_path: F:\Database
         reboot: true
