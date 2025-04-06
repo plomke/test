@@ -5,11 +5,11 @@
   order: inventory
   vars:
     host_to_name:
-      "10.0.0.111": "AD01"
-      "10.0.0.112": "AD02"
-      "10.0.0.113": "DHCP01"
-      "10.0.0.114": "FILE01"
-      "10.0.0.115": "CA01"
+      "10.0.0.121": "AD01"
+      "10.0.0.122": "AD02"
+      "10.0.0.123": "DHCP01"
+      "10.0.0.124": "FILE01"
+      "10.0.0.125": "CA01"
   tasks:
     - name: Rename VM
       ansible.windows.win_powershell:
