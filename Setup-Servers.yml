@@ -1,4 +1,15 @@
 ---
+- name: rename servers
+  hosts: 10.0.0.111,10.0.0.112,10.0.0.113,10.0.0.114,10.0.0.115
+  tasks:
+    - name: Rename vms
+      ansible.windows.win_powershell:
+        script: |
+          Rename-Computer -NewName "{{ new_server_name }}" -Force
+
+
+
+#####
 - name: AD SERVER
   hosts: 10.0.0.111
   become: no  
