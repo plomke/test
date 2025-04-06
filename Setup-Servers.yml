@@ -24,3 +24,14 @@
       ansible.windows.win_powershell:
         script: |
           Add-DnsServerConditionalForwarderZone -Name "Forwarder" -MasterServers "1.1.1.1"
+
+- name: AD02 SERVER
+  hosts: 10.0.0.112 
+  tasks:
+  microsoft.ad.membership:
+    dns_domain_name: KMC.local
+    hostname: AD02
+    domain_admin_user: administrator@KMC.local
+    domain_admin_password: P@ssw0rd!
+    state: domain
+    reboot: true
