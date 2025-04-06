@@ -15,10 +15,11 @@
         reboot: true
       register: domain_install
     
-- name: Add dns forwarder
-    community.windows.win_dns_zone:
-      name: KMC.local
-      type: forwarder
-      dns_servers:
-        - 1.1.1.1
-        - 8.8.8.8
+- name: Add DNS forwarder
+  hosts: 10.0.0.111
+  tasks:
+    - name: ADD DNS FORWARDERS
+      community.windows.win_dns_server:
+        forwarders:
+          - 1.1.1.1
+          - 8.8.8.8
