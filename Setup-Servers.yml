@@ -23,4 +23,4 @@
     - name: Set conditional forwarder to 1.1.1.1
       ansible.windows.win_powershell:
         script: |
-          Add-DnsServerConditionalForwarderZone -Name "example.com" -MasterServers "1.1.1.1"
+          Add-DnsServerConditionalForwarderZone -Name "Forwarder" -MasterServers "1.1.1.1"
