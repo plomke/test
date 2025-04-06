@@ -17,3 +17,20 @@
         name: "AD01"
         node: proxmox03
         state: rebooted
+
+
+
+- name: Reboot vm
+      community.general.proxmox_kvm:
+        api_user: root@pam
+        api_password: yhp82bws
+        api_host: 10.0.0.13
+        name: "{{ item }}"
+        node: proxmox03
+        state: rebooted
+      loop:
+        - CA01
+        - FILE01
+        - DHCP01
+        - AD01
+        - AD02
