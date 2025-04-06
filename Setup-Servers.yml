@@ -63,3 +63,22 @@
         log_path: H:\Logs
         database_path: F:\Database
         reboot: true
+        
+- name: DHCP server install dhcp feature
+  hosts: 10.0.0.113
+  tasks:
+    - name: Install DHCP Server role
+      ansible.windows.win_feature:
+        name: DHCP
+        state: present
+        include_management_tools: yes
+        include_sub_features: yes
+      register: dhcp_install
+      
+- name: Install Certificate authority
+  hosts: 10.0.0.115
+  tasks:
+    - name: Install Certificate Authority role
+      ansible.windows.win_feature:
+        name: ADCS-Cert-Authority
+        state: present
