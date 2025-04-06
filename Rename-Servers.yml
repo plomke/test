@@ -19,7 +19,7 @@
         api_host: 10.0.0.13
         name: "{{ item }}"
         node: proxmox03
-        state: rebooted
+        state: restarted
       loop:
         - CA01
         - FILE01
