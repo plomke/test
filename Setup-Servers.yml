@@ -12,7 +12,7 @@
         forest_mode: Win2012R2
         safe_mode_password: P@ssw0rd!
         sysvol_path:  G:\Sysvol
-        log_path: H:\Logs
+        domain_log_path: H:\Logs
         reboot: true
       register: domain_install
     
@@ -60,7 +60,7 @@
         safe_mode_password: P@ssw0rd!
         state: domain_controller
         sysvol_path:  G:\Sysvol
-        log_path: H:\Logs
+        domain_log_path: H:\Logs
         database_path: F:\Database
         reboot: true
         
