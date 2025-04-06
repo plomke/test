@@ -12,9 +12,7 @@
         "10.0.0.115": "CA01"
   tasks:
     - name: Rename vms
-      ansible.windows.win_powershell:
-        script: |
-          Rename-Computer -NewName "{{ host_to_name[ansible_host] }}" -Force
+      ansible.builtin.command: powershell.exe -Command "Rename-Computer -NewName '{{ host_to_name[ansible_host] }}' -Force"
       register: rename_result
       async: 60
       poll: 0
