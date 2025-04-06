@@ -13,6 +13,7 @@
         forest_mode: Win2012R2
         safe_mode_password: P@ssw0rd!
         sysvol_path:  G:\Sysvol
+        reboot: true
       register: domain_install
     
     - name: Reboot host if install requires it
