@@ -107,7 +107,7 @@
         state: present
 
 - name: Join domain File01 server
-  hosts: 10.0.0.123
+  hosts: 10.0.0.124
   tasks:
     - name: Join File 01 server to KMC.local domain
       microsoft.ad.membership:
