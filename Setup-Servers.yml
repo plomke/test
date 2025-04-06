@@ -14,11 +14,11 @@
         sysvol_path:  G:\Sysvol
         reboot: true
       register: domain_install
-      
- - name: ADD DNS forwarder
+    
+- name: ADD DNS forwarder
   hosts: 10.0.0.111
   tasks:   
-    - name: Ensure forwarder has specific DNS servers
+    - name: Add dns forwarder
     community.windows.win_dns_zone:
       name: KMC.local
       type: forwarder
