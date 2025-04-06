@@ -21,6 +21,7 @@
     - name: ADD DNS FORWARDERS
       community.windows.win_dns_zone:
         name: kmc.local
+        type: forwarder
         forwarders:
           - 1.1.1.1
           - 8.8.8.8
