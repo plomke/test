@@ -1,7 +1,6 @@
 ---
 - name: Proxmox host
   hosts: proxmox03  
-  become: no  
   tasks:
     - name: Create VM with 1 disk
       community.general.proxmox_kvm:
@@ -28,7 +27,6 @@
         - DHCP01
 - name: Proxmox host
   hosts: proxmox03  
-  become: no  
   tasks:
     - name: Create VM with 4 disks
       community.general.proxmox_kvm:
