@@ -19,7 +19,7 @@
   hosts: 10.0.0.111
   tasks:
     - name: ADD DNS FORWARDERS
-      community.windows.win_dns_server:
+      community.windows.win_dns_zone:
         name: kmc.local
         forwarders:
           - 1.1.1.1
