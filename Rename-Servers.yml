@@ -14,6 +14,6 @@
         api_user: root@pam
         api_password: yhp82bws
         api_host: 10.0.0.13
-        name: "{{ host_to_name[ansible_host] }}"
+        name: "AD01"
         node: proxmox03
         state: rebooted
