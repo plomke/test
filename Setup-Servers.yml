@@ -15,6 +15,8 @@
       ansible.windows.win_powershell:
         script: |
           Rename-Computer -NewName "{{ host_to_name[windows] }}" -Force
+    - name: Reboot the server to apply the new name
+      ansible.builtin.command: shutdown /r /t 0
       vars:
         host_to_name:
         "10.0.0.111": "AD01"
