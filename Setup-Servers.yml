@@ -18,11 +18,20 @@
       register: rename_result
       async: 60
       poll: 0
-    - name: Reboot the server to apply the new name
-      ansible.builtin.command: shutdown /r /t 0
-      async: 60
-      poll: 0
-      when: rename_result.changed
+    - name: Start VM
+      community.general.proxmox_kvm:
+        api_user: root@pam
+        api_password: yhp82bws
+        api_host: 10.0.0.13
+        name: "{{ item }}"
+        node: proxmox03
+        state: rebooted
+      loop:
+        - CA01
+        - FILE01
+        - DHCP01
+        - AD01
+        - AD02
       
 - name: AD SERVER
   hosts: 10.0.0.111
