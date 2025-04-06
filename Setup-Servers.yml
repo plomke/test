@@ -17,20 +17,11 @@
     
 - name: Add DNS forwarder
   hosts: 10.0.0.111
+  collections:
+    - community.windows
   tasks:
     - name: ADD DNS FORWARDERS
-      community.windows.win_dns_zone:
-        name: kmc.local
-        type: forwarder
-        dns_servers:
-          - 1.1.1.1
-          - 8.8.8.8
-
-- name: Add DNS forwarder
-  hosts: 10.0.0.111
-  tasks:
-    - name: ADD DNS FORWARDERS
-      community.windows.win_dns_server:
+      win_dns_server:
         forwarders:
           - 1.1.1.1
           - 8.8.8.8
