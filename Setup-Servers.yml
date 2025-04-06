@@ -1,6 +1,6 @@
 ---      
 - name: AD01 SERVER
-  hosts: 10.0.0.111 
+  hosts: 10.0.0.121 
   tasks:
     - name: Create new Windows domain in a new forest with specific parameters and reboot in post task
       microsoft.ad.domain:
@@ -17,7 +17,7 @@
       register: domain_install
     
 - name: Add DNS forwarder
-  hosts: 10.0.0.111
+  hosts: 10.0.0.121
   collections:
     - community.windows
   tasks:
@@ -27,7 +27,7 @@
           Add-DnsServerConditionalForwarderZone -Name "Forwarder" -MasterServers "1.1.1.1"
 
 - name: AD02 SERVER
-  hosts: 10.0.0.112
+  hosts: 10.0.0.122
   tasks:
     - name: Install AD Domain Services and RSAT-AD-PowerShell
       ansible.windows.win_feature:
@@ -39,7 +39,7 @@
         include_sub_features: yes
    
 - name: AD02 SERVER
-  hosts: 10.0.0.112 
+  hosts: 10.0.0.122 
   tasks:
     - name: Add ad02 to the existing domain
       microsoft.ad.membership:
@@ -50,7 +50,7 @@
         state: domain
         reboot: true
 - name: Promote AD02 to domain controller
-  hosts: 10.0.0.112 
+  hosts: 10.0.0.122 
   tasks:
     - name: Promote AD02 to a domain controller
       microsoft.ad.domain_controller:
@@ -65,7 +65,7 @@
         reboot: true
         
 - name: DHCP server install dhcp feature
-  hosts: 10.0.0.113
+  hosts: 10.0.0.123
   tasks:
     - name: Install DHCP Server role
       ansible.windows.win_feature:
@@ -75,19 +75,19 @@
         include_sub_features: yes
       register: dhcp_install
 - name: Join domain dhcp server
-  hosts: 10.0.0.113
+  hosts: 10.0.0.123
   tasks:
     - name: Join DHCP server to KMC.local domain
       microsoft.ad.membership:
         dns_domain_name: KMC.local
-        hostname: CA01
+        hostname: DHCP01
         domain_admin_user: administrator@KMC.local
         domain_admin_password: P@ssw0rd!
         state: domain
         reboot: true
 
 - name: Domain join CA01 server
-  hosts: 10.0.0.115
+  hosts: 10.0.0.125
   tasks:
     - name: Join CA server to KMC.local domain
       microsoft.ad.membership:
@@ -99,9 +99,21 @@
         reboot: true
       
 - name: Install Certificate authority
-  hosts: 10.0.0.115
+  hosts: 10.0.0.125
   tasks:
     - name: Install Certificate Authority role
       ansible.windows.win_feature:
         name: ADCS-Cert-Authority
         state: present
+
+- name: Join domain File01 server
+  hosts: 10.0.0.123
+  tasks:
+    - name: Join File 01 server to KMC.local domain
+      microsoft.ad.membership:
+        dns_domain_name: KMC.local
+        hostname: FILE01
+        domain_admin_user: administrator@KMC.local
+        domain_admin_password: P@ssw0rd!
+        state: domain
+        reboot: true
