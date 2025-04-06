@@ -48,3 +48,12 @@
         domain_admin_password: P@ssw0rd!
         state: domain
         reboot: true
+        
+- name: Promote AD02 to a domain controller
+      microsoft.ad.domain_controller:
+        dns_domain_name: KMC.local
+        domain_admin_user: administrator@KMC.local
+        domain_admin_password: P@ssw0rd!
+        safe_mode_password: P@ssw0rd!
+        state: domain_controller
+        reboot: true
