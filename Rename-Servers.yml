@@ -9,7 +9,10 @@
       register: rename_result
       async: 60
       poll: 0
-    - name: Reboot vm
+- name: Proxmox host
+  hosts: proxmox03   
+  tasks:
+    - name: Reboot VM
       community.general.proxmox_kvm:
         api_user: root@pam
         api_password: yhp82bws
