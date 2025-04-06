@@ -19,9 +19,9 @@
   hosts: 10.0.0.111
   tasks:   
     - name: Ensure forwarder has specific DNS servers
-  community.windows.win_dns_zone:
-    name: KMC.local
-    type: forwarder
-    dns_servers:
-      - 1.1.1.1
-      - 8.8.8.8
+    community.windows.win_dns_zone:
+      name: KMC.local
+      type: forwarder
+      dns_servers:
+        - 1.1.1.1
+        - 8.8.8.8
