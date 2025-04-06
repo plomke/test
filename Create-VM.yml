@@ -41,6 +41,7 @@
           sata0: 'local-lvm:70,format=raw'
           sata1: 'local-lvm:70,format=raw'
           sata2: 'local-lvm:70,format=raw'
+          sata2: 'local-lvm:70,format=raw'
         bios: seabios
         ide:
           ide0: "local:iso/Win2022DatacenterDesktopExperienceAuto.iso,media=cdrom"
